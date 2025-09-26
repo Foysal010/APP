@@ -1,16 +1,26 @@
+const validPin = 1234;
+
 document
   .getElementById("add-money-btn")
   .addEventListener("click", function (e) {
     e.preventDefault();
-    console.log("clicked");
+
     const bank = document.getElementById("bank").value;
     const accountNumber = document.getElementById("account-number").value;
     const amount = parseInt(document.getElementById("add-ammount").value);
-    const pin = document.getElementById("add-pin").value;
-    const availableBlance = parseInt(
+    const pin = parseInt(document.getElementById("add-pin").value);
+    const availableBalance = parseInt(
       document.getElementById("available-balance").innerText
     );
+    if (accountNumber.length < 11) {
+      alert("Envalid account number");
+      return;
+    }
 
-    const newBalance = availableBlance + amount;
-    document.getElementById("available-balance").innerText = newBalance;
+    if (pin != validPin) {
+      alert("Envalid pin");
+      return;
+    }
+    const newBalanace = availableBalance + amount;
+    document.getElementById("available-balance").innerText = newBalanace;
   });

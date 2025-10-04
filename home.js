@@ -1,5 +1,6 @@
 const validPin = 1234;
-
+const validAccountNumber = "12345678901";
+// add money button functionality
 document
   .getElementById("add-money-btn")
   .addEventListener("click", function (e) {
@@ -12,7 +13,7 @@ document
     const availableBalance = parseInt(
       document.getElementById("available-balance").innerText
     );
-    if (accountNumber.length < 11) {
+    if (accountNumber != validAccountNumber) {
       alert("Envalid account number");
       return;
     }
@@ -24,6 +25,37 @@ document
     const newBalanace = availableBalance + amount;
     document.getElementById("available-balance").innerText = newBalanace;
   });
+
+//
+//
+//
+// withdraw button functionality
+document.getElementById("withdraw-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const withdrawAmount = parseInt(
+    document.getElementById("withdraw-amount").value
+  );
+  const availableBalance = parseInt(
+    document.getElementById("available-balance").innerText
+  );
+  const accountNumber = document.getElementById("account").value;
+  const pin = parseInt(document.getElementById("pinforwithdraw").value);
+
+  // validation
+  if (accountNumber != validAccountNumber) {
+    alert("invalid account number");
+    return;
+  }
+
+  if (pin != validPin) {
+    alert("Envalid pin");
+    return;
+  }
+
+  const newBalanace = availableBalance - withdrawAmount;
+  document.getElementById("available-balance").innerText = newBalanace;
+});
 
 // toggle features
 document.getElementById("add-money").addEventListener("click", function () {

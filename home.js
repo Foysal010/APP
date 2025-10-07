@@ -13,15 +13,17 @@ document
     const availableBalance = parseInt(
       document.getElementById("available-balance").innerText
     );
+
+    // validation
     if (accountNumber != validAccountNumber) {
-      alert("Envalid account number");
+      alert("invalid account number");
       return;
     }
-
     if (pin != validPin) {
       alert("Envalid pin");
       return;
     }
+
     const newBalanace = availableBalance + amount;
     document.getElementById("available-balance").innerText = newBalanace;
   });

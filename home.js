@@ -60,11 +60,13 @@ document.getElementById("withdraw-btn").addEventListener("click", function (e) {
 });
 
 // toggle features
+
 document.getElementById("add-money").addEventListener("click", function () {
-  document.getElementById("cashout-parent").style.display = "none";
   document.getElementById("add-money-parent").style.display = "block";
+  document.getElementById("cashout-parent").srtyle.display = "none";
 });
+
 document.getElementById("cash-out").addEventListener("click", function () {
+  document.getElementById("cashout-parent").style, (display = "block");
   document.getElementById("add-money-parent").style.display = "none";
-  document.getElementById("cashout-parent").style.display = "block";
 });

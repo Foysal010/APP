@@ -46,6 +46,19 @@ function getInputValue(id) {
 
 //
 //
+//
+// Toggle features fuctions
+
+function toggleHandle(id) {
+  const forms = document.getElementsByClassName("form");
+  for (const form of forms) {
+    form.style.display = "none";
+  }
+  document.getElementById(id).style.display = "block";
+}
+
+//
+//
 // add money button functionality
 document
   .getElementById("add-money-btn")
@@ -111,30 +124,24 @@ document.getElementById("withdraw-btn").addEventListener("click", function (e) {
 
 //Transfer money button functionality
 
-document
-  .getElementById("transer-button")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
-      document.getElementById("add-money-parent").style.display = "none";
-      document.getElementById("cashout-parent").style.display = "none";
-      document.getElementById("transfer-parent").style.display = "block";
-
-
-
-  });
-
 //
 //
 // toggle features
 
-document.getElementById("add-money").addEventListener("click", function () {
-  document.getElementById("add-money-parent").style.display = "block";
-  document.getElementById("cashout-parent").style.display = "none";
-  document.getElementById("transfer-parent").style.display = "none";
+document.getElementById("add-money").addEventListener("click", function (e) {
+  toggleHandle("add-money-parent");
 });
 
 document.getElementById("cash-out").addEventListener("click", function () {
-  document.getElementById("cashout-parent").style.display = "block";
-  document.getElementById("add-money-parent").style.display = "none";
-  document.getElementById("transfer-parent").style.display = "none";
+  toggleHandle("cashout-parent");
+});
+
+document
+  .getElementById("transer-button")
+  .addEventListener("click", function () {
+    toggleHandle("transfer-parent");
+  });
+
+document.getElementById("bonus-button").addEventListener("click", function () {
+  toggleHandle("bonus-parent");
 });

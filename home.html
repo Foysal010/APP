@@ -76,7 +76,11 @@
           <img src="./assets/send1.png" alt="" class="mx-auto" />
           <h2>Cashout</h2>
         </div>
-        <div class="border-2 border-gray-200 text-center p-3 rounded-xl">
+        <div
+          style="cursor: pointer"
+          id="transer-button"
+          class="border-2 border-gray-200 text-center p-3 rounded-xl"
+        >
           <img src="./assets/money1.png" alt="" class="mx-auto" />
           <h2>Transfer Money</h2>
         </div>
@@ -150,9 +154,11 @@
           </button>
         </form>
       </div>
-
+      <!--  -->
+      <!--  -->
+      <!--  -->
       <!-- Cashout money -->
-      <div id="cashout-parent">
+      <div id="cashout-parent" style="display: none">
         <h1 class="my-5 font-bold ml-2">Cashout</h1>
         <form action="" class="bg-white rounded-2xl p-8">
           <div class="mb-3">
@@ -190,6 +196,13 @@
             withdraw
           </button>
         </form>
+      </div>
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!-- transfer money -->
+      <div id="transfer-parent" style="display: none">
+        <h1 class="my-5 font-bold ml-2">Transfer Money</h1>
       </div>
     </div>
     <script src="./home.js"></script>

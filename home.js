@@ -1,19 +1,65 @@
 const validPin = 1234;
 const validAccountNumber = "12345678901";
+
+// Resusable Function with parceInt
+
+function getInputValueNumber(id) {
+  const inputField = document.getElementById(id);
+  const inputFieldValue = inputField.value;
+  const inputFieldValueNumber = parseInt(inputFieldValue);
+
+  return inputFieldValueNumber;
+}
+
+//
+//
+//
+//Fucntion get inner text value
+function InnerText(id) {
+  const element = document.getElementById(id);
+  const elementValue = element.innerText;
+  const elementValueNumber = parseInt(elementValue);
+
+  return elementValueNumber;
+}
+//
+//
+//
+
+//function set inner text value
+
+function setInnerText(value) {
+  const presentValue = document.getElementById("available-balance");
+  presentValue.innerText = value;
+}
+
+//
+//
+// Resuable Fucntion just get value
+
+function getInputValue(id) {
+  const inputField = document.getElementById(id);
+  const inputFieldValue = inputField.value;
+
+  return inputFieldValue;
+}
+
+//
+//
 // add money button functionality
 document
   .getElementById("add-money-btn")
   .addEventListener("click", function (e) {
     e.preventDefault();
 
-    const bank = document.getElementById("bank").value;
-    const accountNumber = document.getElementById("account-number").value;
-    const amount = parseInt(document.getElementById("add-ammount").value);
-    const pin = parseInt(document.getElementById("add-pin").value);
-    const availableBalance = parseInt(
-      document.getElementById("available-balance").innerText
-    );
+    const bank = getInputValue("bank");
+    const accountNumber = getInputValue("account-number");
+    const amount = getInputValueNumber("add-ammount");
+    const pin = getInputValueNumber("add-pin");
+    const availableBalance = InnerText("available-balance");
 
+    //
+    //
     // validation
     if (accountNumber != validAccountNumber) {
       alert("invalid account number");
@@ -25,7 +71,8 @@ document
     }
 
     const newBalanace = availableBalance + amount;
-    document.getElementById("available-balance").innerText = newBalanace;
+    //document.getElementById("available-balance").innerText = newBalanace;
+    setInnerText(newBalanace); // using reusable function
   });
 
 //
@@ -35,15 +82,13 @@ document
 document.getElementById("withdraw-btn").addEventListener("click", function (e) {
   e.preventDefault();
 
-  const withdrawAmount = parseInt(
-    document.getElementById("withdraw-amount").value
-  );
-  const availableBalance = parseInt(
-    document.getElementById("available-balance").innerText
-  );
-  const accountNumber = document.getElementById("account").value;
-  const pin = parseInt(document.getElementById("pinforwithdraw").value);
+  const withdrawAmount = getInputValueNumber("withdraw-amount");
+  const availableBalance = InnerText("available-balance");
+  const accountNumber = getInputValue("account");
+  const pin = getInputValueNumber("pinforwithdraw");
 
+  //
+  //
   // validation
   if (accountNumber != validAccountNumber) {
     alert("invalid account number");
@@ -56,17 +101,40 @@ document.getElementById("withdraw-btn").addEventListener("click", function (e) {
   }
 
   const newBalanace = availableBalance - withdrawAmount;
-  document.getElementById("available-balance").innerText = newBalanace;
+  //document.getElementById("available-balance").innerText = newBalanace;
+  setInnerText(newBalanace); // using reusable function
 });
 
+//
+//
+//
+
+//Transfer money button functionality
+
+document
+  .getElementById("transer-button")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
+      document.getElementById("add-money-parent").style.display = "none";
+      document.getElementById("cashout-parent").style.display = "none";
+      document.getElementById("transfer-parent").style.display = "block";
+
+
+
+  });
+
+//
+//
 // toggle features
 
 document.getElementById("add-money").addEventListener("click", function () {
   document.getElementById("add-money-parent").style.display = "block";
-  document.getElementById("cashout-parent").srtyle.display = "none";
+  document.getElementById("cashout-parent").style.display = "none";
+  document.getElementById("transfer-parent").style.display = "none";
 });
 
 document.getElementById("cash-out").addEventListener("click", function () {
-  document.getElementById("cashout-parent").style, (display = "block");
+  document.getElementById("cashout-parent").style.display = "block";
   document.getElementById("add-money-parent").style.display = "none";
+  document.getElementById("transfer-parent").style.display = "none";
 });

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="num">0</h1>
+    <br>
+    <button id="bt-1">Button-1</button>
+    <button id="bt-2">Button-1</button>
+    <button id="bt-3">Button-1</button>
+
+
+
+<!-- JS -->
+
+    <script>
+
+        function myfunction(num){
+            document.getElementById("num").innerText=num;
+        }
+
+
+        document.getElementById("bt-1").addEventListener("click",function(){
+        myfunction("1");
+        });
+        document.getElementById("bt-2").addEventListener("click",function(){
+        myfunction("2");
+        });
+        document.getElementById("bt-3").addEventListener("click",function(){
+        myfunction("3");
+        });
+    </script>
+     
+</body>
+</html
+
